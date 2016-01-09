@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,6 +38,7 @@
 @yield('content')
 
         <!-- Scripts -->
+{!! Html::script('assets/js/jquery.min.js') !!}
 {!! Html::script('assets/js/bootstrap.min.js') !!}
 </body>
 </html>

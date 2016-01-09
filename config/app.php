@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'https://video-club.herokuapp.com',
+    'url' => env('APP_URL', 'localhost'),
 
     /*
     |--------------------------------------------------------------------------

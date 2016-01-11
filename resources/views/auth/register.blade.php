@@ -1,30 +1,39 @@
 @extends('layout.app')
 @section('content')
-<form method="POST" action="/auth/register">
-    {!! csrf_field() !!}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Login</div>
 
-    <div>
-        Name
-        <input type="text" name="name" value="{{ old('name') }}">
-    </div>
+                    <div class="panel-body">
+                        {!! Form::open(['route' => 'auth/register', 'class' => 'form']) !!}
 
-    <div>
-        Email
-        <input type="email" name="email" value="{{ old('email') }}">
-    </div>
+                        <div class="form-group">
+                            <label>name</label>
+                            {!! Form::input('text', 'name', '', ['class'=> 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            {!! Form::email('email', '', ['class'=> 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            {!! Form::password('password', ['class'=> 'form-control']) !!}
+                        </div>
 
-    <div>
-        Password
-        <input type="password" name="password">
-    </div>
+                        <div class="form-group">
+                            <label>Password confirmation</label>
+                            {!! Form::password('password_confirmation', ['class'=> 'form-control']) !!}
+                        </div>
 
-    <div>
-        Confirm Password
-        <input type="password" name="password_confirmation">
+                        <div>
+                            {!! Form::submit('send',['class' => 'btn btn-primary']) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div>
-        <button type="submit">Register</button>
-    </div>
-</form>
 @endsection

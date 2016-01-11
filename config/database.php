@@ -64,16 +64,36 @@ return [
             'strict'    => false,
         ],
 
-        'heroku' => [
+        'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => env('DB_HOST', parse_url(getenv("DATABASE_URL"))["host"]),
-            'database' => env('DB_DATABASE', substr(parse_url(getenv("DATABASE_URL"))["path"], 1)),
-            'username' => env('DB_USERNAME', parse_url(getenv("DATABASE_URL"))["user"]),
-            'password' => env('DB_PASSWORD', parse_url(getenv("DATABASE_URL"))["pass"]),
+            'host'     => env('DB_HOST', 'localhost'),
+            'database' => env('DB_DATABASE', 'video_club'),
+            'username' => env('DB_USERNAME', 'homestead'),
+            'password' => env('DB_PASSWORD', 'scret'),
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
         ],
+        'heroku' => [
+            'driver'   => 'pgsql',
+            'host'     => env('DB_HOST', 'localhost'),
+            'database' => env('DB_DATABASE', 'video_club'),
+            'username' => env('DB_USERNAME', 'homestead'),
+            'password' => env('DB_PASSWORD', 'secret'),
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
+        ],
+//        'heroku' => [
+//            'driver'   => 'pgsql',
+//            'host'     => env('DB_HOST', parse_url(getenv("DATABASE_URL"))["host"]),
+//            'database' => env('DB_DATABASE', substr(parse_url(getenv("DATABASE_URL"))["path"], 1)),
+//            'username' => env('DB_USERNAME', parse_url(getenv("DATABASE_URL"))["user"]),
+//            'password' => env('DB_PASSWORD', parse_url(getenv("DATABASE_URL"))["pass"]),
+//            'charset'  => 'utf8',
+//            'prefix'   => '',
+//            'schema'   => 'public',
+//        ],
 
         'sqlsrv' => [
             'driver'   => 'sqlsrv',

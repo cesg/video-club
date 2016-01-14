@@ -19,7 +19,7 @@
                             <label><input name="remember" type="checkbox"> Remember me</label>
                         </div>
                         <div>
-                            {!! Form::submit('login',['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit('login',['class' => 'btn btn-primary', 'id' => 'login']) !!}
                         </div>
                         {!! Form::close() !!}
                     </div>

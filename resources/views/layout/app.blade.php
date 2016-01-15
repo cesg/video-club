@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
     <link rel="stylesheet" href="{!! asset('css/bootstrap.css') !!}">
+    <script src="{!! asset('/js/jquery.min.js') !!}" ></script>
+    <script src="{!! asset('/js/angular.min.js') !!}"></script>
     @yield('css')
             <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -16,7 +18,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body ng-app="video-club">
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -63,7 +65,10 @@
 </div>
 @yield('content')
         <!-- Scripts -->
-<script src="{!! asset('/js/jquery.min.js') !!}" type="text/javascript"></script>
 <script src="{!! asset('/js/bootstrap.min.js') !!}" type="text/javascript"></script>
+<script type="text/javascript">
+    app = angular.module('video-club', []);
+</script>
+@yield('scripts')
 </body>
 </html>

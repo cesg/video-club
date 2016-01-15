@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePeliculaGenerosTable extends Migration
+class CreateActoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreatePeliculaGenerosTable extends Migration
      */
     public function up()
     {
-        Schema::create('generos', function (Blueprint $table) {
+        Schema::create('actores', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('desc');
+            $table->string('nombre');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ class CreatePeliculaGenerosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('generos');
+        Schema::drop('actores');
     }
 }

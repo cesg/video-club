@@ -20,7 +20,7 @@ class CreatePeliculasTable extends Migration
             $table->timestamps();
             $table->unsignedInteger('productora_id');
 
-            $table->foreign('productora_id')->references('id')->on('productoras')->onDelete('cascade');
+//            $table->foreign('productora_id')->references('id')->on('productoras')->onDelete('cascade');
         });
     }
 

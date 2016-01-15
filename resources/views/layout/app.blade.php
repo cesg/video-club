@@ -44,6 +44,7 @@
                     <li><a href="{{route('auth/logout')}}">Logout</a></li>
 
                 @endif
+                @yield('menu')
             </ul>
         </div>
     </div>

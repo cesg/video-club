@@ -19,6 +19,10 @@ Route::get('dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('mantenedor/pelicula', function () {
+    return view('pelicula.lista');
+});
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', ['as' =>'auth/login', 'uses' => 'Auth\AuthController@postLogin']);

@@ -1,7 +1,13 @@
 @extends('layout.app')
+@section('css')
+    <link rel="stylesheet" href="{!! asset('css/main.css') !!}">
+@endsection
+
 @section('content')
     <div class="container">
-        <h2>Video Club</h2>
+        <div id="titulo">
+            <h1>VIDEO CLUB</h1>
+        </div>
         <p></p>
     </div>
 @endsection

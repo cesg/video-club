@@ -1,0 +1,12 @@
+body {
+    background: #34495e;
+}
+
+h1 {
+    color: #3498db;
+    font-size: 80px;
+}
+
+div#titulo {
+    text-align: center;
+}

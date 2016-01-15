@@ -19,9 +19,22 @@ Route::get('dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('mantenedor/pelicula', function () {
-    return view('pelicula.lista');
+Route::group(['prefix' => 'mantenedor'], function () {
+    Route::get('pelicula', function () {
+        return view('pelicula.lista');
+    });
+
+    Route::get('pelicula/crear', function () {
+        JavaScript::put(['productoras' => \App\Models\Productora::all(['id', 'nombre'])]);
+        return view('pelicula.crear');
+    });
+
+    Route::get('pelicula/{peliculaID}/editar', function ($peliculaID) {
+        JavaScript::put(['pelicula' => \App\Models\Pelicula::find($peliculaID)]);
+        return view('pelicula.editar');
+    });
 });
+
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -34,4 +47,6 @@ Route::post('auth/register', ['as' => 'auth/register', 'uses' => 'Auth\AuthContr
 
 Route::group(['prefix' => 'api'], function () {
     Route::get('pelicula', 'Pelicula\PeliculaController@index');
+    Route::post('pelicula', 'Pelicula\PeliculaController@store');
+    Route::post('pelicula/{peliculaID}', 'Pelicula\PeliculaController@update');
 });

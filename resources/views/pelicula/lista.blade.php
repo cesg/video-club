@@ -7,7 +7,7 @@
             <span class="caret"></span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Peliculas</a></li>
+            <li><a href="{!! url('mantenedor/pelicula') !!}">Peliculas</a></li>
         </ul>
     </li>
 @endsection
@@ -15,6 +15,7 @@
     <div class="container" ng-controller="listaPeliculaCtr">
         <div class="row">
             <h2>Buscar película por título</h2>
+            <a href="{!! url('/mantenedor/pelicula/crear') !!}">Agregar Compra</a>
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
                     <input type="text" class="  search-query form-control" placeholder="Search" ng-model="titulo"/>
@@ -34,7 +35,7 @@
                 </tr>
                 <tr ng-repeat="pelicula in peliculas">
                     <td>@{{ pelicula.titulo }}</td>
-                    <td><a href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a></td>
+                    <td><a href="{!! url('/mantenedor/pelicula/') !!}@{{ '/' + pelicula.id + '/editar' }}"><span class="glyphicon glyphicon-edit"></span> Editar</a></td>
                 </tr>
             </table>
 

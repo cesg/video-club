@@ -45,7 +45,14 @@ class PeliculaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pelicula = Pelicula::create([
+            'titulo' => $request->input('titulo'),
+            'desc' => $request->input('desc'),
+            'copias' => $request->input('copias'),
+            'productora_id' => $request->input('productora')
+        ]);
+
+        return response()->json(['pelicula' => $pelicula]);
     }
 
     /**
@@ -79,7 +86,17 @@ class PeliculaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pelicula = Pelicula::find($id);
+        if (is_null($pelicula)) {
+            return response()->json('No encontrado', 404);
+        }
+        $pelicula->update([
+           'titulo' => $request->input('titulo', $pelicula->titulo),
+            'desc' => $request->input('desc', $pelicula->desc),
+            'copias' => $request->input('copias', $pelicula->copias),
+        ]);
+
+        return response()->json(['pelicula' => $pelicula]);
     }
 
     /**

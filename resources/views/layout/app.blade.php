@@ -64,7 +64,7 @@
     @endif
 </div>
 @yield('content')
-        <!-- Scripts -->
+@yield('footer')
 <script src="{!! asset('/js/bootstrap.min.js') !!}" type="text/javascript"></script>
 <script type="text/javascript">
     app = angular.module('video-club', []);

@@ -34,6 +34,12 @@ Route::group(['prefix' => 'mantenedor'], function () {
         JavaScript::put(['pelicula' => $pelicula, 'productoras' => \App\Models\Productora::all(['id', 'nombre']), 'actores' => \App\Models\Actor::all(['id', 'nombre'])]);
         return view('pelicula.editar');
     });
+
+    Route::get('pelicula/{peliculaID}/eliminar', function ($peliculaID) {
+        $pelicula = \App\Models\Pelicula::with('actores')->find($peliculaID);
+        JavaScript::put(['pelicula' => $pelicula, 'productoras' => \App\Models\Productora::all(['id', 'nombre']), 'actores' => \App\Models\Actor::all(['id', 'nombre'])]);
+        return view('pelicula.eliminar');
+    });
 });
 
 Route::get('img/{imgName}', 'Imagen\ImagenController@show');
@@ -50,5 +56,6 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('pelicula', 'Pelicula\PeliculaController@index');
     Route::post('pelicula', 'Pelicula\PeliculaController@store');
     Route::post('pelicula/{peliculaID}', 'Pelicula\PeliculaController@update');
+    Route::delete('pelicula/{peliculaID}', 'Pelicula\PeliculaController@destroy');
     Route::post('img/upload', 'Imagen\ImagenController@store');
 });

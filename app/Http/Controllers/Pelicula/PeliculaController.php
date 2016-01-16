@@ -117,6 +117,14 @@ class PeliculaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pelicula = Pelicula::find($id);
+        if (is_null($pelicula)) {
+            return response()->json('No econtrada');
+        }
+
+        $pelicula->delete();
+
+        return response()->json('Eliminado');
+
     }
 }

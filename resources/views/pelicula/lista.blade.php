@@ -43,9 +43,12 @@
             </tr>
             <tr ng-repeat="pelicula in peliculas">
                 <td><img src="/img/@{{ pelicula.img }}" alt="" class="img-thumbnail" height="100" width="100"></td>
-                <td>@{{ pelicula.titulo }}</td>
+                <td><p class="lead">@{{ pelicula.titulo }}</p></td>
                 <td><a href="{!! url('/mantenedor/pelicula/') !!}@{{ '/' + pelicula.id + '/editar' }}"><span
-                                class="glyphicon glyphicon-edit"></span> Editar</a></td>
+                                class="glyphicon glyphicon-edit"></span> Editar</a>
+                    <a href="{!! url('/mantenedor/pelicula/') !!}@{{ '/' + pelicula.id + '/eliminar' }}"><span
+                                class="glyphicon glyphicon-trash"></span> Eliminar</a>
+                </td>
             </tr>
         </table>
     </div>
@@ -58,7 +61,7 @@
             $scope.resultados = false;
             $scope.buscarPeliculas = function () {
                 if ($scope.titulo) {
-                    $http.get('api/pelicula?titulo=' + $scope.titulo).success(function (data) {
+                    $http.get('/api/pelicula?titulo=' + $scope.titulo).success(function (data) {
                         $scope.peliculas = data.peliculas;
                     });
                 } else {

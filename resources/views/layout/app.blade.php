@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
-    <link rel="stylesheet" href="{!! asset('css/bootstrap.css') !!}">
+    <link rel="stylesheet" href="{!! asset('/css/bootstrap.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('/css/angular-flash.min.css') !!}">
     <script src="{!! asset('/js/jquery.min.js') !!}" ></script>
     <script src="{!! asset('/js/angular.min.js') !!}"></script>
     @yield('css')
@@ -63,8 +64,10 @@
         </div>
     @endif
 </div>
+    <div class="container" flash-message="7000" ></div>
 @yield('content')
 @yield('footer')
+<script src="{!! asset('/js/angular-flash.min.js') !!}" type="text/javascript"></script>
 <script src="{!! asset('/js/bootstrap.min.js') !!}" type="text/javascript"></script>
 {{--<script src="{!! asset('/js/angular-file-upload.min.js') !!}" type="text/javascript"></script>--}}
 <script src="{!! asset('/js/ng-file-upload-shim.min.js') !!}" type="text/javascript"></script>

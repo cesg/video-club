@@ -1,1 +1,1 @@
-app = angular.module('video-club', []);
+app = angular.module('video-club', ['ngFileUpload']);

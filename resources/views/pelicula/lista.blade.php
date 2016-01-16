@@ -37,16 +37,17 @@
     <div class="row" ng-show="resultados" class="ng-hide">
         <table class="table">
             <tr>
-                <th>Titulo</th>
-                <td>Acciones</td>
+                <th>Caratula</th>
+                <th>Título</th>
+                <th>Acciones</th>
             </tr>
             <tr ng-repeat="pelicula in peliculas">
+                <td><img src="/img/@{{ pelicula.img }}" alt="" class="img-thumbnail" height="100" width="100"></td>
                 <td>@{{ pelicula.titulo }}</td>
                 <td><a href="{!! url('/mantenedor/pelicula/') !!}@{{ '/' + pelicula.id + '/editar' }}"><span
                                 class="glyphicon glyphicon-edit"></span> Editar</a></td>
             </tr>
         </table>
-
     </div>
 @endsection
 @section('scripts')

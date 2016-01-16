@@ -25,17 +25,18 @@ Route::group(['prefix' => 'mantenedor'], function () {
     });
 
     Route::get('pelicula/crear', function () {
-        JavaScript::put(['productoras' => \App\Models\Productora::all(['id', 'nombre'])]);
+        JavaScript::put(['productoras' => \App\Models\Productora::all(['id', 'nombre']), 'actores' => \App\Models\Actor::all(['id', 'nombre'])]);
         return view('pelicula.crear');
     });
 
     Route::get('pelicula/{peliculaID}/editar', function ($peliculaID) {
-        JavaScript::put(['pelicula' => \App\Models\Pelicula::find($peliculaID)]);
+        $pelicula = \App\Models\Pelicula::with('actores')->find($peliculaID);
+        JavaScript::put(['pelicula' => $pelicula, 'productoras' => \App\Models\Productora::all(['id', 'nombre']), 'actores' => \App\Models\Actor::all(['id', 'nombre'])]);
         return view('pelicula.editar');
     });
 });
 
-
+Route::get('img/{imgName}', 'Imagen\ImagenController@show');
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', ['as' =>'auth/login', 'uses' => 'Auth\AuthController@postLogin']);
@@ -49,4 +50,5 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('pelicula', 'Pelicula\PeliculaController@index');
     Route::post('pelicula', 'Pelicula\PeliculaController@store');
     Route::post('pelicula/{peliculaID}', 'Pelicula\PeliculaController@update');
+    Route::post('img/upload', 'Imagen\ImagenController@store');
 });

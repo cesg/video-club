@@ -49,8 +49,13 @@ class PeliculaController extends Controller
             'titulo' => $request->input('titulo'),
             'desc' => $request->input('desc'),
             'copias' => $request->input('copias'),
-            'productora_id' => $request->input('productora')
+            'productora_id' => $request->input('productora'),
+            'img' => $request->input('img'),
         ]);
+
+        if (!empty($actores = $request->input('actores', []))) {
+            $pelicula->actores()->sync($actores);
+        }
 
         return response()->json(['pelicula' => $pelicula]);
     }
@@ -94,7 +99,12 @@ class PeliculaController extends Controller
            'titulo' => $request->input('titulo', $pelicula->titulo),
             'desc' => $request->input('desc', $pelicula->desc),
             'copias' => $request->input('copias', $pelicula->copias),
+            'img' => $request->input('img', $pelicula->img),
         ]);
+
+        if (!empty($actores = $request->input('actores', []))) {
+            $pelicula->actores()->sync($actores);
+        }
 
         return response()->json(['pelicula' => $pelicula]);
     }

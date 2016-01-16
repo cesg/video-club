@@ -11,6 +11,24 @@ class ActoresTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $faker = Faker\Factory::create();
+        \App\Models\Actor::create([
+            'nombre' => $faker->name,
+        ]);
+        \App\Models\Actor::create([
+            'nombre' => $faker->name,
+        ]);
+        \App\Models\Actor::create([
+            'nombre' => $faker->name,
+        ]);
+        \App\Models\Actor::create([
+            'nombre' => $faker->name,
+        ]);
+        \App\Models\Actor::create([
+            'nombre' => $faker->name,
+        ]);
+        \App\Models\Actor::create([
+            'nombre' => $faker->name,
+        ]);
     }
 }

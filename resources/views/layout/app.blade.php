@@ -66,9 +66,10 @@
 @yield('content')
 @yield('footer')
 <script src="{!! asset('/js/bootstrap.min.js') !!}" type="text/javascript"></script>
-<script type="text/javascript">
-    app = angular.module('video-club', []);
-</script>
+{{--<script src="{!! asset('/js/angular-file-upload.min.js') !!}" type="text/javascript"></script>--}}
+<script src="{!! asset('/js/ng-file-upload-shim.min.js') !!}" type="text/javascript"></script>
+<script src="{!! asset('/js/ng-file-upload.min.js') !!}" type="text/javascript"></script>
+<script src="{!! asset('/js/app.js') !!}"></script>
 @yield('scripts')
 </body>
 </html>

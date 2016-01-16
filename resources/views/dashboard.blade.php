@@ -7,8 +7,6 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <li><a href="{{ url('mantenedor/pelicula') }}">Peliculas</a></li>
-                {{--<li role="separator" class="divider"></li>--}}
-                {{--<li><a href="#">Separated link</a></li>--}}
             </ul>
         </li>
 @endsection

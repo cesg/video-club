@@ -7,7 +7,7 @@
             <span class="caret"></span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Peliculas</a></li>
+            <li><a href="{!! url('mantenedor/pelicula') !!}">Peliculas</a></li>
         </ul>
     </li>
 @endsection
